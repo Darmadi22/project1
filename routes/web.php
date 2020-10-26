@@ -15,7 +15,11 @@ use App\Http\Controllers\produkController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/aboutt', function () {
+    return view('aboutt');
 });
 
 Route::get('/about', function() {
