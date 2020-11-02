@@ -14,6 +14,11 @@ use App\Http\Controllers\produkController;
 |
 */
 
+use
+App\Http\Controllers\IndexController
+;
+Route::get('/desktop',[IndexController::class,'about']);
+
 Route::get('/', function () {
     return view('index');
 });
