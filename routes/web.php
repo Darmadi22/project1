@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\produkController;
+use App\Http\Controllers\latihan;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,37 +14,5 @@ use App\Http\Controllers\produkController;
 |
 */
 
-use
-App\Http\Controllers\IndexController
-;
-Route::get('/desktop',[IndexController::class,'about']);
-
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/aboutt', function () {
-    return view('aboutt');
-});
-
-Route::get('/about', function() {
-    echo "ini merupakan page (page about)";
-})->name('tentang');
-
-Route::get('/show/{id?}', function($id) {
-    echo "Id : ". $id ;
-})->where('id','[0-9]+');
-
-Route::get('/utama', function() {
-    echo "Page Utama";
-    echo "<br>";
-    echo "<a href='".route('tentang')."'>ABOUT</a>";
-});
-
-Route::get('/produk',[produkController::class,'index']); 
-
-Route::get('/LatihanView01', function() {
-    return view('latihan01');
-});
-
-Route::get('/produk/showproduk',[produkController::class, 'showproduk']);
+Route::get('/',[latihan::class, 'index']);
+Route::get('/darmadi', [latihan::class, 'aboutt']);
