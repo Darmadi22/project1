@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\latihan;
+use App\Http\Controllers\Tugas7;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +14,5 @@ use App\Http\Controllers\latihan;
 |
 */
 
-Route::get('/',[latihan::class, 'index']);
-Route::get('/darmadi', [latihan::class, 'aboutt']);
+
+Route::get('/tugas',[Tugas7::class,'index']);
