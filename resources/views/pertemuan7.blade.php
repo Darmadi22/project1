@@ -19,7 +19,8 @@
             <td>{{$p->Kategori}}</td>
             <td>{{$p->Keterangan}}</td>
         </tr>
-        @endforeach
+        @endforeach()
+      
         </tbody>
         </table>
         </body>
