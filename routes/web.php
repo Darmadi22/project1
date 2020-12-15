@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tugas7;
 use App\Http\Controllers\Prak9Controller;
+use App\Http\Controllers\Prak10Controller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,5 @@ Route::get('/tugas',[Tugas7::class,'index']);
 Route::get('/prak9_01',[Prak9Controller::class,'QB_tugas1']);
 Route::get('/prak9_02',[Prak9Controller::class,'QB_tugas2']);
 Route::get('/prak9_03',[Prak9Controller::class,'QB_tugas3']);
+
+Route::resource('/prak10',Prak10Controller::class);
