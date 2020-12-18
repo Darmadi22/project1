@@ -79,8 +79,8 @@ class Prak11Controller extends Controller
     {
         //Menampilkan data berdasarkan pencarian
         $kriteria = "%".id."%";
-        $KData = produks::where('namaproduk','like',$kreteria)->get();
-        $JRek = produks::where('namaproduk','like',$kreteria)->count();
+        $KData = produks::where('namaproduk','like',$kriteria)->get();
+        $JRek = produks::where('namaproduk','like',$kriteria)->count();
         return view('praktikum11.prak1.index',compact('KData','JRek'));
     }
 
