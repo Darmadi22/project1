@@ -9,5 +9,5 @@ class kategori extends Model
 {
     use HasFactory;
     protected $guarded = ['idkat', 'created_at', 'updated_at'];
-   public $table = 'produks';
+   public $table = 'kategori';
 }

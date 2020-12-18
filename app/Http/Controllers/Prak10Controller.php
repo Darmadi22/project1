@@ -48,7 +48,7 @@ class Prak10Controller extends Controller
         $this->validate($request,[
             'txkat'=>'required',
         ],$psn);
-        
+       
         kategori::create([
           
                 'kategori'=> $request->txkat,

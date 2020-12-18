@@ -12,12 +12,14 @@
             <div class="txlabel">Kategori</div>
             <div class="inputext"><input type="text" name="txkat">
         @if($errors->has("txkat"))
-            <span>Tidak boleh eror</span>
+            <span>Isi dulu dong,Hey!</span>
         @endif
         </div>
             <div class="txlabel">Keterangan</div>
             <div class="inputext"><input type="text" name="txdes"></div>
-            
+          @if($errors->has("txdes"))
+            <span>Isi dulu dong,Hey!</span>
+           @endif
             <input type="submit" name="btnkirim" value="Buat Data">
         </form>
     </body>
