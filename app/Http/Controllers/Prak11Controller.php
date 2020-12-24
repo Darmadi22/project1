@@ -19,7 +19,7 @@ class Prak11Controller extends Controller
         $KData = produks::get();
         $JRek = produks::count();
 
-        return view('praktikum11.prak1.index',compact('KData','JRek'));
+        return view('praktikum11.index',compact('KData','JRek'));
 
     }
 
