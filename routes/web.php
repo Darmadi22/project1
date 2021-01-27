@@ -28,3 +28,5 @@ Route::get('/prak9_03',[Prak9Controller::class,'QB_tugas3']);
 Route::resource('/prak10',Prak10Controller::class);
 
 Route::resource('/prak11',Prak11Controller::class);
+
+Route::resource('/uas',ProjekUAS::class);

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Produk extends Migration
+class Perpus extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class Produk extends Migration
      */
     public function up()
     {
+       //Table tb_perpustakaan
         Schema::create('tb_perpustakaan', function(Blueprint $TB){
             $TB->increments('Kode Buku');
             $TB->string('Judul Buku',100);
@@ -28,7 +29,6 @@ class Produk extends Migration
      */
     public function down()
     {
-        //
-        Schema::dropIfExists('produks');
+        Schema::dropIfExists('tb_perpustakaan');
     }
 }
