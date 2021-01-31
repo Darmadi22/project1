@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class perpustakaan extends Model
+class peminjam extends Model
 {
     use HasFactory;
-    public $table = "tb_perpustakaan";
+    public $table = "tb_peminjam";
 }

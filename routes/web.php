@@ -5,6 +5,7 @@ use App\Http\Controllers\Tugas7;
 use App\Http\Controllers\Prak9Controller;
 use App\Http\Controllers\Prak10Controller;
 use App\Http\Controllers\Prak11Controller;
+use App\Http\Controllers\ProjekUAS;
 
 
 /*

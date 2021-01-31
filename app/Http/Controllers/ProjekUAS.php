@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\perpustakaan;
+use App\Models\peminjam;
 
 class ProjekUAS extends Controller
 {
@@ -14,6 +16,15 @@ class ProjekUAS extends Controller
     public function index()
     {
         //
+        $KData = perpustakaan::get();
+        $JRek = perpustakaan::count();
+
+        return view('uas.index',compact('KData','JRek'));
+
+        $PData = peminjam::get();
+        $PRek = peminjam::count();
+
+        return view('uas.index',compact('PData','PRek'));
     }
 
     /**
@@ -23,7 +34,8 @@ class ProjekUAS extends Controller
      */
     public function create()
     {
-        //
+        $DPerpus = perpustakaan::get();
+        return view ('uas.create',compact('DPerpus'));
     }
 
     /**
@@ -34,7 +46,24 @@ class ProjekUAS extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aturan = [
+            'txjudul'=>'required',
+            'txkode'=>'required|numeric',
+            'txHjumlah'=>'required|numeric'
+        ];
+        $msg = [
+            'required'=>'wajib diisi',
+            'required'=>'wajib diisi dengan angka',
+        ];
+        $this->validate($request,$aturan,$msg);
+        //Menambahkan data
+        perpustakaan::create([
+            'kode_buku'=>$request->txkode,
+            'judul_buku'=>$request->txjudul,
+            'jumlah_buku'=>$request->txjumlah
+
+        ]);
+        return redreact()->route('uas.index');
     }
 
     /**
@@ -45,7 +74,15 @@ class ProjekUAS extends Controller
      */
     public function show($id)
     {
-        //
+        $kriteria = "%".id."%";
+        $KData = perpustakaan::where('Judul Buku','like',$kriteria)->get();
+        $JRek = perpustakaan::where('Judul Buku','like',$kriteria)->count();
+        return view('uas.index',compact('KData','JRek'));
+
+        $peminjaman = "%".id."%";
+        $PData = peminjam::where('Kode Buku','like',$peminjaman)->get();
+        $PRek = peminjam::where('Kode Buku','like',$peminjaman)->count();
+        return view('uas.index',compact('PData','PRek'));
     }
 
     /**
@@ -57,6 +94,10 @@ class ProjekUAS extends Controller
     public function edit($id)
     {
         //
+        $Edit = tabelsiswa::where('id',$id)->first();
+        $DKat = tabelpilihan::get();
+
+        return view('uas.edit',compact('Edit','DKat'));
     }
 
     /**
@@ -69,6 +110,13 @@ class ProjekUAS extends Controller
     public function update(Request $request, $id)
     {
         //
+        perpustakaan::where('id',$id)->update([
+
+            'kode_buku'=>$request->txkode,
+            'judul_buku'=>$request->txjudul,
+            'jumlah_buku'=>$request->txjumlah
+        ]);
+        return redirect()->route('uas.index');
     }
 
     /**
@@ -80,5 +128,7 @@ class ProjekUAS extends Controller
     public function destroy($id)
     {
         //
+        perpustakaan::where('id',$id)->delete();
+        return redirect()->route('uas.index');
     }
 }
